@@ -1,0 +1,136 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{relsize}
+\usepackage{mathrsfs}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\dif}{\Delta}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\f}{\mathbf{f}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\A}{\mathbf{A}}
+
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}[section]
+
+\theoremstyle{definition}
+\newtheorem{trditev}{Trditev}[section]
+
+\theoremstyle{definition}
+\newtheorem{izrek}{Izrek}[section]
+
+\theoremstyle{definition}
+\newtheorem{metoda}{Metoda}[section]
+
+\newtheorem*{posledica}{Posledica}
+\newtheorem*{opomba}{Opomba}
+\newtheorem*{komentar}{Komentar}
+\newtheorem{lema}{Lema}
+\newtheorem*{dokaz}{Dokaz}
+\newtheorem*{posplošitev}{Posplošitev}
+\newtheorem*{dogovor}{Dogovor}
+\newtheorem*{sklep}{Sklep}
+
+\title{Analiza 4 - definicije, trditve in izreki}
+\author{Oskar Vavtar \\
+po predavanjih profesorice Jasne Prezelj}
+\date{2019/20}
+
+\begin{document}
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+
+% #################################################################################################
+
+\section{Diferenčne enačbe}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Uvod}
+\vspace{0.5cm}
+
+\begin{definicija}[Diferenca]
+
+Denimo, da je $y=f(t)$ dana funkcija.
+\begin{itemize}
+	\item 1. način: $\dif y_t ~=~ f(t+h) - f(t) ~=~ y_{t+h} - y_t$
+	\item 2. način: $\dif y_t ~=~ f(t) - f(t-h) ~=~ y_t - y_{t-h}$
+\end{itemize}
+Posebej definiramo $\dif^0 y_t = y_t$. Velja
+$$\dif^{n+1} y_t ~=~ \dif(\dif^n y_t)_t.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Navadna diferenčna enačba} je enačba, ki vsebuje (eno ali) več diferenc,
+$$F(t, \dif^0 y_t, \ldots, \dif^n y_t) ~=~ 0.$$
+\textit{Red} diferenčne enačbe je red najvišje diference. Če je $F$ linearna v $\dif^k y_t$, je enačba linearna.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Sistem $n$ diferenčnih enačb 1. reda} je dan z
+\begin{align*}
+y_1(t+1) ~&=~ f_1(t,y_1(t),\ldots,y_n(t)) \\
+&\vdots \\
+y_n(t+1) ~&=~ f_n(t,y_1(t),\ldots,y_n(t))
+\end{align*} 
+Če $t$ eksplicitno ne nastopa, rečemo, da je to \textit{avtonomen sistem}. Če so $f_1,\ldots,f_n$ linearne, lahko sistem zapišemo v matrični obliki:
+\begin{align*}
+\y ~&=~ \begin{bmatrix}
+y_1 \\
+\vdots \\
+y_n
+\end{bmatrix},~~~ f_i(t) ~=~ b_i(t) + a_{i1}y_1(t) + \ldots + a_{in}y_n(t), ~i = 1,\ldots, n\\ \\
+\y(t+1) ~&=~ \begin{bmatrix}
+a_{11}(t) & \ldots & a_{1n}(t) \\
+\vdots & \ddots & \vdots \\
+a_{n1}(t) & \vdots & a_{nn}(t)
+\end{bmatrix} \begin{bmatrix}
+y_1(t) \\
+\vdots \\
+y_n(t) 
+\end{bmatrix} + \begin{bmatrix}
+b_1(t) \\
+\vdots \\
+b_n(t)
+\end{bmatrix} ~=~ \A(t)\y(t) + \b(t)
+\end{align*}
+Nelinearen sistem lahko vseeno zapišemo v vektorski obliki:
+$$\f ~=~ \begin{bmatrix}
+f_1 \\
+\vdots \\
+f_n
+\end{bmatrix}, ~~~ \y(t+1) ~=~ \f(t, \y(t))$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Če je sistem oblike
+$$\y_{m+1} = \A\y_m,$$
+se imenuje \textit{homogen}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\pagebreak
+
+% *************************************************************************************************
+
+% #################################################################################################
+
+\end{document}
