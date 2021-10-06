@@ -12,8 +12,12 @@
 \newcommand{\dif}{\Delta}
 \renewcommand{\b}{\mathbf{b}}
 \newcommand{\f}{\mathbf{f}}
+\newcommand{\g}{\mathbf{g}}
 \newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\w}{\mathbf{w}}
 \newcommand{\A}{\mathbf{A}}
+\newcommand{\glnr}{\text{GL}_n(\R)}
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}[section]
@@ -127,9 +131,112 @@ se imenuje \textit{homogen}.
 \end{definicija}
 \vspace{0.5cm}
 
-\pagebreak
+% *************************************************************************************************
+
+\subsection{Linearne diferenčne enačbe in \\sistemi linearnih diferenčnih enačb}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Sistem linearnih diferencialnih enačb} reda $n$ je dan s predpisom
+$$\y(t+1) ~=~ \A(t)\y(t) + \b(t),$$
+kjer je $\A \in \glnr$, $b \in \R^n$. 
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Začetni pogoj} (ali \textit{Cauchyjeva naloga}) za sistem $n$ linearnih diferenčnih enačb 1. reda je: reši 
+$$\y(t+1) ~=~ \A(t)\y(t) + \b(t)$$
+pri začetnem pogoju $\y(t_0) = \y_0 \in \R^n$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Prostor rešitev homogenega sistema je $n$-dimenzionalen vektorski prostor. Rešitve so linearno neodvisne v času $t+m$ $\iff$ so linearno neodvisne v času $t$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{komentar}[Nehomogen sistem]
+
+Opazili smo, da če $\y,\z$ rešita
+$$\y(t+1) ~=~ \A\y(t) + \b(t),$$
+potem $\y(t) - \z(t) = \w(t)$ reši
+$$\w(t+1) ~=~ \A\w(t).$$
+Posledično je vsaka rešitev nehomogenega sistema oblike 
+$$\y ~=~ \y_h + \y_p,$$
+kjer je $\y_h$ rešitev homogenega sistema, $\y_p$ pa - pravimo ji \textit{partikularna} - rešitev nehomogenega sistema.
+
+\end{komentar}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Cauchyjeva naloga za linearne diferenčne enačbe s \textit{konstantnimi koeficienti} je: reši
+$$\y_{t+n} + a_{n-1}\y_{t+n-1} + \ldots + a_0\y_t ~=~ \g(t)$$
+pri pogoju
+$$\y(0) ~=~ \gamma_0,\ldots,\y(n-1) ~=~ \gamma_{n-1}.$$
+Enačbo lahko prevedemo na sistem:
+$$\begin{bmatrix}
+\y_1(t+1) \\
+\y_2(t+1) \\
+\vdots \\
+\y_{n-1}(t+1) \\
+\y_{n}(t+1)
+\end{bmatrix} ~=~ \begin{bmatrix}
+0 & 1 & 0 & \ldots & 0 \\
+0 & 0 & 1 & \ldots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \ldots & 1 \\
+-a_0 & -a_1 & -a_2 & \ldots & -a_{n-1} 
+\end{bmatrix} \begin{bmatrix}
+\y_1(t) \\
+\y_2(t) \\
+\vdots \\
+\y_{n-1}(t) \\
+\y_n(t)
+\end{bmatrix} + \begin{bmatrix}
+0 \\
+0 \\
+\vdots \\
+0 \\
+-\g(t)
+\end{bmatrix},$$
+kjer je $\y_k(t) := \y(t+k-1)$ (torej velja $\y_k(t) = \y_{k-1}(t+1))$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Splošna rešitev homogene enačbe je dana z
+$$\y_h ~=~ \sum_{i=1}^n a_i \y_i,$$
+kjer so $\y_i$, $i=1,\ldots,n$ linearno odvisne rešitve enačbe. Prostor rešitev je vektorski prostor dimenzije $n.$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{metoda}
+
+Za iskanje linearnih neodvisnih rešitev homogene enačbe uporabimo nastavek $\y_t = \lambda^t$:
+$$\lambda^{t+n} + a_{n-1}\lambda^{t+n-1} + \ldots + a_0\lambda^t ~=~ 0$$
+Karakteristični polinom:
+$$p(\lambda) ~=~ \lambda^n + a_{n-1}\lambda^{n-1} + \ldots + a_n.$$
+Naj bo $\lambda_0$ ničla $p(\lambda)$, $p(\lambda_0) = 0$. Potem je
+$$\lambda_0^{t+1} + \ldots + a_0\lambda_0^t ~=~ \lambda_0^t \cdot p(\lambda_0) ~=~ 0.$$
+Če ima $p(\lambda)$ $n$ enostavnih ničel, $\lambda_0,\ldots,\lambda_{n-1}$, je vsaka rešitev oblike
+$$\y(t) ~=~ \alpha_0\lambda^t + \ldots + \alpha_{n-1}\lambda_{n-1}^t.$$
+
+\end{metoda}
+\vspace{0.5cm}
 
 % *************************************************************************************************
+
+\pagebreak
 
 % #################################################################################################
 
