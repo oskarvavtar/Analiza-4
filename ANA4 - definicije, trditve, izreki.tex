@@ -236,6 +236,29 @@ $$\y(t) ~=~ \alpha_0\lambda^t + \ldots + \alpha_{n-1}\lambda_{n-1}^t.$$
 
 % *************************************************************************************************
 
+\subsection{Stabilnost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $\y_{t+1} = \f(t,y_t)$ dan sistem in postavimo $t_0 = 0$. Rešitev $\y$ je \textit{stabilna}, če za $\forall \varepsilon > 0$ $\exists \delta > 0$: če je $\z$ katerakoli druga rešitev, ki zadošča $|\z_0 - \y_0| < \delta$ $\Rightarrow$ $|\z_t - \y_t| < \varepsilon$, $t>0$. \\
+
+\noindent Rešitev je \textit{asimptotsko stabilna}, če je stabilna in za $\forall \varepsilon>0$ $\exists \delta>0$: $|\z_0 - \y_0| < \delta$, $|\z_t - \y_t| < \varepsilon$, $t\geq 0$ in $\lim_{t \rightarrow \infty} |\z_t - y_t| = 0$. \\
+
+\noindent Za linearne sisteme:
+\begin{align*}
+\y_{t+1} ~&=~ \A \y_t + \b_t \\
+\y_n ~&=~ \y_{n,p} + \A^n \y_0, ~~~y_{0,p} = 0 \\
+\z_n ~&=~ \y_{n,p} + \A^n \z_0 \\
+|\y_n - \z_n| ~&=~ |\A^n(\y_0 - \z_0)| ~\leq~ \|\A\|^n \|\y_0 - \z_0\|
+\end{align*}
+$\y_{n,p}$ je (asimptotsko) stabilna rešitev nehomogenega sistema $\iff$ $\mathbf{0}$ je (asimptotsko) stabilna rešitev homogenega sistema. Torej: $\|\A\| <1$: stabilnost.
+
+\end{definicija}
+\vspace{0.5cm}
+
+%**************************************************************************************************
+
 \pagebreak
 
 % #################################################################################################
