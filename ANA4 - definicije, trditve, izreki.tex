@@ -393,7 +393,94 @@ Naj ob $y' = f(x,y)$ diferencialna enačba, $f \in \C((0,a)\times(0,b))$, $f$ Li
 
 \begin{izrek}[Globalni eksistenčni izrek]
 
-Naj bo $y' = f(x,y)$ dana diferencialna enačba, $f \in \C([0,a] \times \R)$, Lipschitzova na 2. spremenljivko pri fiksni 1. spremenljivki s konstanto $k(x)$, ki je integrabilna na $[0,a]$. Potem obstaja natanko ena rešitev enačba pri pogoju $y(0) = y_0$, ki je definirana na $[0,a]$.
+Naj bo $y' = f(x,y)$ diferencialna enačba, $f \in \C([0,a] \times \R)$, Lipschitzova na 2. spremenljivko pri fiksni 1. spremenljivki s konstanto $k(x)$, ki je integrabilna na $[0,a]$. Potem obstaja natanko ena rešitev enačba pri pogoju $y(0) = y_0$, ki je definirana na $[0,a]$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Gladkost}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Cauchyjeva naloga:
+\begin{align*}
+y' ~&=~ f(x,y,a), ~~~a \in P \subset \R^n, \\
+y(s) ~&=~ t
+\end{align*}
+$\varphi(x,x_0,y_0)$ je rešitev zgornje Cauchyjeve naloge.
+Naj bo $f$ gladka v vseh spremenljivkah. Potem je $\varphi$ gladko odvisna od $x,s,t,a$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{Sistemi diferencialnih enačb}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Uvod}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bodo $x,y_1,\ldots,y_n$ realne spremenljivke in $f_i: \R^{n+1} \rightarrow \R$, $i = 1,\ldots,n$, realna funkcija. Sistem $n$ diferencialnih enačb 1. reda je
+\begin{align*}
+y'_1 ~&=~ f_1(x,y_1,\ldots,y_n) \\
+&\vdots \\
+y'_n ~&=~ f_n(x,y_1,\ldots,y_n).
+\end{align*}
+V vektorski obliki:
+$$\y ~=~ \begin{bmatrix}
+y_1 \\
+\vdots \\
+y_n
+\end{bmatrix}, ~~~\f ~=~ \begin{bmatrix}
+f_1 \\
+\vdots \\
+f_n
+\end{bmatrix}.$$
+Sistem se prepiše v $\y' = \f(x,\y)$. Cauchyjeva naloga:
+\begin{align*}
+\y' ~&=~ \f(x,\y) \\
+\y(x_0) ~&=~ \y_0
+\end{align*}
+Če $x$ v $\f$ eksplicitno ne nastopa, se sistem imenuje \textit{avtonomen}. Če je $\f$ linearna v $\y$, je sistem \textit{linearen} in pišemo
+$$\y' ~=~ \A(x)\y + \b(x).$$
+Če je $\b \equiv 0$, je sistem \textit{homogen}. 
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Sistemi linearnih diferencialnih enačb}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Sistem
+$$\y' ~=~ \A(x)\y + \b(x),$$
+$\A,\b$ zvezni na $[0,a]$, izpolnjuje predpostavke G.E.I.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo 
+$$\y' ~=~ \A(x)\y + \b(x)$$
+sistem $n$ diferencialnih enačb 1. reda, $\A,\b$ zvezni na $[0,a]$. Prostor rešitev homogene enačbe $\y = \A(x)\y$ je vektorski prostor dimenzije $n$. Vsaka rešitev nehomogenega je oblike
+$$\y ~=~ \y_H + \y_P,$$
+kjer je $\y_H$ rešitev homogenega sistema, $\y_P$ pa partikularna rešitev nehomogenega sistema.
 
 \end{izrek}
 \vspace{0.5cm}
