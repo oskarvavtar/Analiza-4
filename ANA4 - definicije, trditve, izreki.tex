@@ -6,6 +6,8 @@
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{relsize}
 \usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{calligra}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
@@ -15,11 +17,16 @@
 \newcommand{\g}{\mathbf{g}}
 \newcommand{\y}{\mathbf{y}}
 \newcommand{\z}{\mathbf{z}}
+\newcommand{\uu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
 \newcommand{\w}{\mathbf{w}}
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\glnr}{\text{GL}_n(\R)}
 \newcommand{\set}[1]{\{#1\}}
+\newcommand{\re}{\mathfrak{Re}}
+\newcommand{\Lin}{\text{\calligra Lin}}
+\newcommand{\0}{\mathbf{0}}
 
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}[section]
@@ -46,7 +53,7 @@
 \title{Analiza 4 - definicije, trditve in izreki}
 \author{Oskar Vavtar \\
 po predavanjih profesorice Jasne Prezelj}
-\date{2019/20}
+\date{2021/22}
 
 \begin{document}
 \maketitle
@@ -79,7 +86,7 @@ $$\dif^{n+1} y_t ~=~ \dif(\dif^n y_t)_t.$$
 
 \begin{definicija}
 
-\textit{Navadna diferenčna enačba} je enačba, ki vsebuje (eno ali) več diferenc,
+\textit{Navadna diferenčna enačba} je enačba, ki vsebuje eno ali več diferenc,
 $$F(t, \dif^0 y_t, \ldots, \dif^n y_t) ~=~ 0.$$
 \textit{Red} diferenčne enačbe je red najvišje diference. Če je $F$ linearna v $\dif^k y_t$, je enačba linearna.
 
@@ -104,7 +111,7 @@ y_n
 \y(t+1) ~&=~ \begin{bmatrix}
 a_{11}(t) & \ldots & a_{1n}(t) \\
 \vdots & \ddots & \vdots \\
-a_{n1}(t) & \vdots & a_{nn}(t)
+a_{n1}(t) & \ldots & a_{nn}(t)
 \end{bmatrix} \begin{bmatrix}
 y_1(t) \\
 \vdots \\
@@ -143,7 +150,7 @@ se imenuje \textit{homogen}.
 
 \textit{Sistem linearnih diferencialnih enačb} reda $n$ je dan s predpisom
 $$\y(t+1) ~=~ \A(t)\y(t) + \b(t),$$
-kjer je $\A \in \glnr$, $b \in \R^n$. 
+kjer je $\A \in \glnr$, $\b \in \R^n$. 
 
 \end{definicija}
 \vspace{0.5cm}
@@ -180,16 +187,16 @@ kjer je $\y_h$ rešitev homogenega sistema, $\y_p$ pa - pravimo ji \textit{parti
 \begin{definicija}
 
 Cauchyjeva naloga za linearne diferenčne enačbe s \textit{konstantnimi koeficienti} je: reši
-$$\y_{t+n} + a_{n-1}\y_{t+n-1} + \ldots + a_0\y_t ~=~ \g(t)$$
+$$y_{t+n} + a_{n-1}y_{t+n-1} + \ldots + a_0y_t ~=~ g(t)$$
 pri pogoju
-$$\y(0) ~=~ \gamma_0,\ldots,\y(n-1) ~=~ \gamma_{n-1}.$$
+$$y(0) ~=~ \gamma_0,\ldots,y(n-1) ~=~ \gamma_{n-1}.$$
 Enačbo lahko prevedemo na sistem:
 $$\begin{bmatrix}
-\y_1(t+1) \\
-\y_2(t+1) \\
+y_1(t+1) \\
+y_2(t+1) \\
 \vdots \\
-\y_{n-1}(t+1) \\
-\y_{n}(t+1)
+y_{n-1}(t+1) \\
+y_{n}(t+1)
 \end{bmatrix} ~=~ \begin{bmatrix}
 0 & 1 & 0 & \ldots & 0 \\
 0 & 0 & 1 & \ldots & 0 \\
@@ -197,19 +204,19 @@ $$\begin{bmatrix}
 0 & 0 & 0 & \ldots & 1 \\
 -a_0 & -a_1 & -a_2 & \ldots & -a_{n-1} 
 \end{bmatrix} \begin{bmatrix}
-\y_1(t) \\
-\y_2(t) \\
+y_1(t) \\
+y_2(t) \\
 \vdots \\
-\y_{n-1}(t) \\
-\y_n(t)
+y_{n-1}(t) \\
+y_n(t)
 \end{bmatrix} + \begin{bmatrix}
 0 \\
 0 \\
 \vdots \\
 0 \\
--\g(t)
+-g(t)
 \end{bmatrix},$$
-kjer je $\y_k(t) := \y(t+k-1)$ (torej velja $\y_k(t) = \y_{k-1}(t+1))$.
+kjer je $y_k(t) := y(t+k-1)$ (torej velja $y_k(t) = y_{k-1}(t+1))$.
 
 \end{definicija}
 \vspace{0.5cm}
@@ -217,22 +224,22 @@ kjer je $\y_k(t) := \y(t+k-1)$ (torej velja $\y_k(t) = \y_{k-1}(t+1))$.
 \begin{izrek}
 
 Splošna rešitev homogene enačbe je dana z
-$$\y_h ~=~ \sum_{i=1}^n a_i \y_i,$$
-kjer so $\y_i$, $i=1,\ldots,n$ linearno odvisne rešitve enačbe. Prostor rešitev je vektorski prostor dimenzije $n.$
+$$y_H ~=~ \sum_{i=1}^n a_i y_i,$$
+kjer so $y_i$, $i=1,\ldots,n$ linearno neodvisne rešitve enačbe. Prostor rešitev je vektorski prostor dimenzije $n.$
 
 \end{izrek}
 \vspace{0.5cm}
 
 \begin{metoda}
 
-Za iskanje linearnih neodvisnih rešitev homogene enačbe uporabimo nastavek $\y_t = \lambda^t$:
+Za iskanje linearnih neodvisnih rešitev homogene enačbe uporabimo nastavek $y_t = \lambda^t$:
 $$\lambda^{t+n} + a_{n-1}\lambda^{t+n-1} + \ldots + a_0\lambda^t ~=~ 0$$
 Karakteristični polinom:
 $$p(\lambda) ~=~ \lambda^n + a_{n-1}\lambda^{n-1} + \ldots + a_n.$$
 Naj bo $\lambda_0$ ničla $p(\lambda)$, $p(\lambda_0) = 0$. Potem je
-$$\lambda_0^{t+1} + \ldots + a_0\lambda_0^t ~=~ \lambda_0^t \cdot p(\lambda_0) ~=~ 0.$$
+$$\lambda_0^{t+n} + \ldots + a_0\lambda_0^t ~=~ \lambda_0^t \cdot p(\lambda_0) ~=~ 0.$$
 Če ima $p(\lambda)$ $n$ enostavnih ničel, $\lambda_0,\ldots,\lambda_{n-1}$, je vsaka rešitev oblike
-$$\y(t) ~=~ \alpha_0\lambda^t + \ldots + \alpha_{n-1}\lambda_{n-1}^t.$$
+$$y(t) ~=~ \alpha_0\lambda^t + \ldots + \alpha_{n-1}\lambda_{n-1}^t.$$
 
 \end{metoda}
 \vspace{0.5cm}
@@ -251,11 +258,11 @@ Naj bo $\y_{t+1} = \f(t,y_t)$ dan sistem in postavimo $t_0 = 0$. Rešitev $\y$ j
 \noindent Za linearne sisteme:
 \begin{align*}
 \y_{t+1} ~&=~ \A \y_t + \b_t \\
-\y_n ~&=~ \y_{n,p} + \A^n \y_0, ~~~y_{0,p} = 0 \\
-\z_n ~&=~ \y_{n,p} + \A^n \z_0 \\
+\y_n ~&=~ \y_{n,P} + \A^n \y_0, ~~~y_{0,P} = 0 \\
+\z_n ~&=~ \y_{n,P} + \A^n \z_0 \\
 |\y_n - \z_n| ~&=~ |\A^n(\y_0 - \z_0)| ~\leq~ \|\A\|^n \|\y_0 - \z_0\|
 \end{align*}
-$\y_{n,p}$ je (asimptotsko) stabilna rešitev nehomogenega sistema $\iff$ $\mathbf{0}$ je (asimptotsko) stabilna rešitev homogenega sistema. Torej: $\|\A\| <1$: stabilnost.
+$\y_{n,P}$ je (asimptotsko) stabilna rešitev nehomogenega sistema $\iff$ $\mathbf{0}$ je (asimptotsko) stabilna rešitev homogenega sistema. Torej: $\|\A\| <1$: stabilnost.
 
 \end{definicija}
 \vspace{0.5cm}
@@ -483,6 +490,97 @@ $$\y ~=~ \y_H + \y_P,$$
 kjer je $\y_H$ rešitev homogenega sistema, $\y_P$ pa partikularna rešitev nehomogenega sistema.
 
 \end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{Kvalitativna analiza}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Uvod}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $\y' = \f(x,\y)$ dan sistem enačb in $\bm{\varphi}(x)$ njegova rešitev. Potem pravimo, da je $\bm{\varphi}$ \textit{stabilna}, da za $\forall \varepsilon>0  ~\exists \delta > 0$, da velja: če je $\bm{\psi}$ neka druga rešitev in je $\|\bm{\psi}(0) - \bm{\varphi}(0)\| < \delta$, potem
+$$\|\bm{\psi}(x) - \bm{\varphi}(x)\| ~<~ \varepsilon, \quad x > 0.$$
+Če je $\bm{\varphi}$ stabilna in za $\bm{\psi}$, ki zadošča zgornjim pogojem, velja še
+$$\lim_{x \rightarrow \infty} \|\bm{\psi}(x) - \bm{\varphi}(x)\| ~=~ 0,$$
+pravimo, da je $\bm{\varphi}$ \textit{asimptotsko stabilna}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $\y' = \A\y$ dan sistem in je $\A$ matrika z lastnimi \hbox{vrednostmi $\lambda_i$.}
+\begin{enumerate}
+	
+\item[(a)] Če $\forall i:\re(\lambda_i) < 0$ je vsaka rešitev asimptotsko stabilna.
+
+\item[(b)] Če $\exists i: \re(\lambda_i) > 0$ so vse rešitve nestabilne.
+
+\item[(c)] Če $i<j: \re(\lambda_i) = 0$ in je število lastnih vektorjev, ki pripadajo $\lambda_i$, enako njeni algebrajski večkratnosti in $i \geq j: \re(\lambda_i) < 0$, je vsaka rešitev stabilna. Če $\exists i<j$, tako da algebrajska večkratnost ni enaka številu lastnih vektorjev ($\re(\lambda_i)=0$), potem je vsaka rešitev nestabilna.	
+	
+\end{enumerate}
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $\y' = \A\y$ dan sistem in naj bo $\vv_j = \uu_j + i\w_j$ posplošeni lastni vektor (lastni ali korenski) za lastno vrednost $\lambda_j$. Definiramo:
+\begin{itemize}
+
+\item \textit{Stabilni podprostor}:
+$$E^s ~=~ \Lin\set{\uu_j, \w_j \in \R^n \mid \re(\lambda_j)<0}$$
+
+\item \textit{Nestabilni podprostor}:
+$$E^n ~=~ \Lin\set{\uu_j, \w_j \in \R^n \mid \re(\lambda_j)>0}$$
+
+\item \textit{Centralni podprostor}:
+$$E^c ~=~ \Lin\set{\uu_j, \w_j \in \R^n \mid \re(\lambda_j)=0}$$
+
+\end{itemize}
+
+\end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Stabilnost ravnovesnih rešitev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Stacionarna točka $\y_0$ avtonomnega sistema $\y' = \f(\y)$, $\f$ gladka, je \textit{hiperbolična}, če ima
+$$\A ~=~ \mathbf{D}\f(\y)$$
+trivialen centralni prostor. Če $\y_0$ ni hiperbolična, je \textit{nehiperbolična}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $E \subset \R^n$ odprta množica, ki vsebuje izhodišče in naj bo $\f: E \rightarrow \R^n$ razreda $\C^2$. Označimo z $\bm{\varphi}_x(t)$ rešitev, ki zadošča $\bm{\varphi}_x(0) = x$ (tokovnica skozi $x$). Naj bo $\0$ hiperbolična stacionarna točka sistema in pišimo
+$$\A ~=~ \mathbf{D}\f(\0).$$
+Obstaja $H: U \rightarrow V$, difeomorfizem reda $\C^1$, $U,V$ odprti okolici izhodišča, $H(0)=(0)$ tak, da velja: $\forall x_0 \in U$ obstaja odprt interval $I_0$ okoli $0$, $I_0 \subset \R$ in velja
+$$H \circ \bm{\varphi}_{x_0} ~=~ e^{\A t} H(x_0).$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+Če je $\f$ zgolj razreda $\C^1$, je $H$ homeomorfizem.
+
+\end{opomba}
 \vspace{0.5cm}
 
 % *************************************************************************************************
