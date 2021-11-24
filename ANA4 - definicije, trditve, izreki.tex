@@ -15,6 +15,7 @@
 \renewcommand{\b}{\mathbf{b}}
 \newcommand{\f}{\mathbf{f}}
 \newcommand{\g}{\mathbf{g}}
+\newcommand{\x}{\mathbf{x}}
 \newcommand{\y}{\mathbf{y}}
 \newcommand{\z}{\mathbf{z}}
 \newcommand{\uu}{\mathbf{u}}
@@ -566,7 +567,7 @@ trivialen centralni prostor. Če $\y_0$ ni hiperbolična, je \textit{nehiperboli
 \end{definicija}
 \vspace{0.5cm}
 
-\begin{izrek}
+\begin{izrek}[Harman-Grobman]
 
 Naj bo $E \subset \R^n$ odprta množica, ki vsebuje izhodišče in naj bo $\f: E \rightarrow \R^n$ razreda $\C^2$. Označimo z $\bm{\varphi}_x(t)$ rešitev, ki zadošča $\bm{\varphi}_x(0) = x$ (tokovnica skozi $x$). Naj bo $\0$ hiperbolična stacionarna točka sistema in pišimo
 $$\A ~=~ \mathbf{D}\f(\0).$$
@@ -581,6 +582,41 @@ $$H \circ \bm{\varphi}_{x_0} ~=~ e^{\A t} H(x_0).$$
 Če je $\f$ zgolj razreda $\C^1$, je $H$ homeomorfizem.
 
 \end{opomba}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Ob predpostavkah izreka Hartman-Grobman je $x=0$ asimptotsko stabilna rešitev linearizirane enačbe $\x' = \A\x$. Rešitev je nestabilna, če ima $\A$ vsaj eno lastno vrednost $\lambda$, $\re(\lambda)>0$ ($\iff E^n \neq \set{0})$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Problem morskih psov med 1. svetovno vojno}
+\vspace{0.5cm}
+
+\begin{lema}
+
+Naj bosta $x(t),y(t)$ periodični rešitvi sistem Lotka-Volterra s periodo $T>0$. Potem je
+\begin{align*}
+\frac{l}{b} ~&=~ \frac{1}{T}\int_0^T x(t)\,dt, \\
+\frac{k}{a} ~&=~ \frac{1}{T}\int_0^T y(t)\,dt.
+\end{align*}
+
+\end{lema}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Limitne rešitve}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $\y' = \f(\y)$ dan sistem, $\f\in\C^1$, $\varphi(t)$ rešitev in \hbox{$\lim_{t \rightarrow \infty} \varphi(t) = \y_0$}. Potem je $\y_0$ stacionarna točka.
+
+\end{izrek}
 \vspace{0.5cm}
 
 % *************************************************************************************************
