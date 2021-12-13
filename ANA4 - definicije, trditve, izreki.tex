@@ -621,6 +621,38 @@ Naj bo $\y' = \f(\y)$ dan sistem, $\f\in\C^1$, $\varphi(t)$ rešitev in \hbox{$\
 
 % *************************************************************************************************
 
+\subsection{Stabilnost in funkcija Ljapunova}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bo $E \subset \R^2$ odprta množica, ki vsebuje izhodišče. Naj bo $\dot{\x}=\f(\x)$ dan sistem in naj bo $\0$ njegova stacionarna točka in naj obstaja gladka vunkcija $V$ na $E$, $V(0)=0$, $V>0$ sicer.
+\begin{enumerate}
+	\item[(a)] $\dot{V} \leq 0$: $\0$ je stabilna;
+	\item[(b)] $\dot{V}<0$ na $E \setminus \set{\0}$: $\0$ je asimptotsko stabilna;
+	\item[(c)] $\dot{V}>0$ na $E \setminus \set{\0}$: $\0$ je nestabilna. 
+\end{enumerate}
+Funkcija $V$ se imenuje \textit{Ljupanova}.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Vedenje pri velikih časih}
+\vspace{0.5cm}
+
+\begin{izrek}[Poincare-Bendixon]
+
+Naj bo $\y' = \f(\y)$ dan sistem, $K \subset \R^2$ kompaktna množica brez stacionarnih točk sistemu in naj bo $\varphi_x(t)$, $t \geq 0$, točkovnica, ki je v $K$ za $\forall t \geq 0$:
+$$\varphi_x(t) \in K, \quad \forall t \geq 0.$$
+Potem obstaja v $K$ periodična rešitev in $\varphi_x(t)$ se navija okoli nje.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
 \pagebreak
 
 % #################################################################################################
