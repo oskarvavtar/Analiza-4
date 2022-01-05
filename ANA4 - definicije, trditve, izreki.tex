@@ -657,4 +657,133 @@ Potem obstaja v $K$ periodična rešitev in $\varphi_x(t)$ se navija okoli nje.
 
 % #################################################################################################
 
+\section{Variacijski račun}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Funkcija $f(x,y)$ je homogena reda $\alpha$, če je
+$$f(tx,ty) ~=~ t^\alpha f(x,y).$$
+ 
+\end{definicija}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
+\section{Parcialne diferencialne enačbe}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Parcialna diferencialna enačba je vsaka enačba oblike
+$$f(x_1,\ldots,x_n, u_{x_1},\ldots,u_{x_n},u_{x_1x_1},\ldots,u_{x_n\ldots x_n},u) ~=~ 0.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+PDE 1. reda je oblike
+$$f(x_1,\ldots,x_n,u_{x_1},\ldots,u_{x_n},u) ~=~ 0.$$
+Primer 2 spremenljivk, $u=u(x,y)$:
+$$f(x,y,u_x,u_y,u) ~=~ 0.$$
+Če je $f$ linearna v $p:=u_x, q:=u_y$ je enačba \textit{kvazilinearna}. Zapišemo
+$$ap + bq = c.$$ Začetna naloga: reši $ap+bq=c$ pri pogoju $u(x(s),y(s))=u(s)$ oz. $u$ vsebuje krivuljo
+$$\Gamma(s) ~=~ \set{(x(s),y(s),u(s)); ~s \in (\alpha,\beta)}.$$
+Denimo, da smo našli rešitev: graf je nivojnica funkcij
+$$u(x,y)-z ~=~ 0,$$
+zato je normalna na ploskev dano z
+$$(u_x,u_y,-1) ~=~ (p,q,-1).$$
+Enačba je $ap+bq-c=0$:
+$$(p,q,-1)(a,b,c) ~=~ 0.$$
+Enačba pove, da je graf sestavljen iz tokovnic polja $(a,b,c)$, ki gredo skozi $\Gamma$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Metoda karakteristik]
+
+Naj bodo $a,b,c$ gladke funkcije na okolici gladke začetne krivulje
+$$\Gamma ~=~ \set{(x(s),y(s),u(s)); ~s \in I},$$
+$I \subset \R$ odprt integral, ki je taka, da je $\set{(x(s),y(s)); ~s \in I}$ brez samopresečišč. Naj velja, da je $J(s,0) \neq 0$ na $I$ (torej izpolnjuje transverzalni pogoj). Potem je $ap+bq = c$ rešljiva na okolici začetne krivulje in rešitev je ena sama ter gladko odvisna od začetnih pogojev. 
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+Če transverzalni pogoj ne izpolnjen na nekem intervalu, potem bodisi ni rešitve bodisi jih je neskončno mnogo.
+
+\end{opomba}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $y'=f(x,y)$ sistem diferencialnih enačb. Funkcija $F$ je \textit{prvi integral} sistema, če je $F(x,y)$ konstantna za vsako rešitev sistema. Če sta $F_1,F_2$ prva integrala, je tudi $G(F_1,F_2)$ prvi integral. Prvi integrali $F_1,\ldots,F_n$ so funkcijsko neodvisni, če obstaja natanko ena netrivialna funkcija $G$, da je
+$$G(F_1,\ldots,F_n) ~=~ 0.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Pfaffova enačba
+$$F_1\,dx + F_2\,dy + F_3\,dz ~=~ 0$$
+je rešljiva natanko tedaj, ko je
+$$F \cdot \text{rot}(F) ~=~ 0.$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
+\section{Linearne PDE 2. reda}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Splošna oblika LPDE 2. reda je
+$$L_u ~:=~ a u_{xx} + 2b u_{xy} + c u_{yy} + d u_x + c u_y + f ~=~ 0,$$
+kjer so $a,\ldots,f$ gladke funkcije. $L_0 u = a u_{xx} + 2b u_{xy} + c u_{yy}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo dan diferencialni operator $Lu = 0$. Naj bo
+$$G ~=~ \begin{bmatrix}
+a & b \\
+b & c
+\end{bmatrix}.$$
+Če je na območju $U$:
+\begin{itemize}
+	\item $\det{G} = ac - b^2 < 0,$ je enačba na $U$ hiperbolična. Model: valovna enačba
+	$$u_{tt} ~=~ c^2 u_{xx}.$$
+	\item $\det{G} = ac - b^2 = 0,$ je enačba na $U$ parabolična. Model: toplotna enačba
+	$$u_t ~=~ c u_{xx}.$$
+	\item $\det{G} = ac - b^2 > 0,$ je enačba na $U$ eliptična. Model: Laplaceova enačba
+	$$u_{xx} + u_{yy} ~=~ 0.$$
+\end{itemize} 
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Ker je 
+$$AC-B^2 ~=~ (\det{J})^2(ac-b^2)$$
+je tip neodvisen od koordinat.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
 \end{document}
